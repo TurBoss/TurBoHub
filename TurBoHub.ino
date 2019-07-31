@@ -50,6 +50,9 @@ elapsedMillis ledOnMillis;
 
 
 void setup() {
+  // MIDI RealTime System
+  usbMIDI.setHandleRealTimeSystem(RealTimeSystem); 
+  
   Serial.begin(115200);
   pinMode(13, OUTPUT); // LED pin
   digitalWrite(13, HIGH);
