@@ -23,7 +23,7 @@ MIDI_CREATE_INSTANCE(HardwareSerial, Serial3, MIDI3);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial4, MIDI4);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial5, MIDI5);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial6, MIDI6);
-//midi::MidiInterface &SerialMidiList[6] = {MIDI1, MIDI2, MIDI3, MIDI4, MIDI5, MIDI6};
+// midi::MidiInterface &SerialMidiList[6] = {MIDI1, MIDI2, MIDI3, MIDI4, MIDI5, MIDI6};
 
 // Create the ports for USB devices plugged into Teensy's 2nd USB port (via hubs)
 USBHost turbohub;
@@ -51,8 +51,8 @@ elapsedMillis ledOnMillis;
 
 void setup() {
   // MIDI RealTime System
-  usbMIDI.setHandleRealTimeSystem(RealTimeSystem); 
-  
+  // usbMIDI.setHandleRealTimeSystem(RealTimeSystem);
+
   Serial.begin(115200);
   pinMode(13, OUTPUT); // LED pin
   digitalWrite(13, HIGH);
@@ -105,7 +105,7 @@ void loop() {
   }
 
   // Next read messages arriving from the (up to) 10 USB devices plugged into the USB Host port
-  for (int port=0; port < 10; port++) {
+  for (int port = 0; port < 10; port++) {
     if (midilist[port]->read()) {
       uint8_t type =       midilist[port]->getType();
       uint8_t data1 =      midilist[port]->getData1();
